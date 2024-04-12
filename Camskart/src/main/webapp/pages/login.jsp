@@ -28,14 +28,15 @@
 			
 			<p class="accountcreatemsg">Don't have an account?</p>
 			
-			<a href="/Camskart/register">Create one now</a><br>
+			
+			<a href="${pageContext.request.contextPath}/pages/register.jsp">Create one now</a><br>
 			 
 			
 			<button type="submit" class="login-button">Login</button><br>
 			<%
-				String errorMessage = (String) request.getAttribute(StringUtils.MESSAGE_ERROR);
-				if (errorMessage != null && !errorMessage.isEmpty()) {
-				%>
+			String errorMessage = (String) request.getAttribute(StringUtils.MESSAGE_ERROR);
+					if (errorMessage != null && !errorMessage.isEmpty()) {
+			%>
 				<p class ="error-message"><%=errorMessage %></p>
 					<%
 					}

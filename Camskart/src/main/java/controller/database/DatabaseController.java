@@ -60,10 +60,11 @@ public class DatabaseController {
 	        st.setString(7, userModel.getPhoneNumber());
 	        st.setString(8, PasswordEncryptionWithAes.encrypt(
 	                userModel.getUsername(), userModel.getPassword()));
+	        st.setString(9, userModel.getUsertype());
 	        st.setString(10, userModel.getStreet());
-	        st.setString(11, userModel.getCity());
-	        st.setString(12, userModel.getPostcode());
-	        st.setString(13, userModel.getZone());
+	        st.setString(11, userModel.getCity());	        
+	        st.setString(12, userModel.getZone()); 
+	        st.setString(13, userModel.getPostcode()); 
 	        st.setString(14, userModel.getCountry());
 
 	        int result = st.executeUpdate();

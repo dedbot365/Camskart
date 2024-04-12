@@ -4,7 +4,10 @@ public class StringUtils {
 	//Start SQL Queries
 	public static final String REGISTER_USER = "INSERT INTO users "
 	        + "(username, first_name, last_name, dob, gender, email, phone_no, password, user_type, street, city, postal_code, zone, country) "
-	        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, IFNULL(?, '2'), ?, ?, ?, ?, ?)";
+
+
+
 
 	public static final String GET_LOGIN_USER_INFO = "SELECT * FROM users WHERE username = ?";
 
@@ -36,6 +39,7 @@ public class StringUtils {
 	public static final String POSTAL_CODE = "postal_code";
 	public static final String ZONE = "zone";
 	public static final String COUNTRY = "country";
+	public static final String USER_TYPE = "user_type";
 	// End Parameter names
 
 	
@@ -70,6 +74,7 @@ public class StringUtils {
 		public static final String PAGE_URL_LOGIN = "/pages/login.jsp";
 		public static final String PAGE_URL_REGISTER = "/pages/register.jsp";
 		public static final String PAGE_URL_WELCOME = "/pages/welcome.jsp";
+		public static final String PAGE_URL_ADMIN = "/pages/admin.jsp";
 		public static final String PAGE_URL_FOOTER = "pages/footer.jsp";
 		public static final String PAGE_URL_HEADER = "pages/header.jsp";
 		public static final String URL_LOGIN = "/login.jsp";
