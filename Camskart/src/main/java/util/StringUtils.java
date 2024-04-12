@@ -3,7 +3,7 @@ package util;
 public class StringUtils {
 	//Start SQL Queries
 	public static final String REGISTER_USER = "INSERT INTO users "
-	        + "(username, first_name, last_name, birthday, gender, email, phone_no, password, user_type, street, city, postal_code, zone, country) "
+	        + "(username, first_name, last_name, dob, gender, email, phone_no, password, user_type, street, city, postal_code, zone, country) "
 	        + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	public static final String GET_LOGIN_USER_INFO = "SELECT * FROM users WHERE username = ?";
