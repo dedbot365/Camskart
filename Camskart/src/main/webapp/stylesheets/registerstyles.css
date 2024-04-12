@@ -4,8 +4,9 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 20px;
-    background-image: linear-gradient(to right, pink, purple);
+    background-image: url("/Camskart/resources/images/registrationbackground.png");
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     display: flex;
@@ -62,14 +63,20 @@ select {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #0D0D0D;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 5%;
+    margin-left:2%;
+    margin-bottom:3%;
+    width: 95%;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #449A44;
+    background-color: #262626;
 }

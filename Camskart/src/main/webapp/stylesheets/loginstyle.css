@@ -4,9 +4,9 @@ body {
     font-family: sans-serif;
     margin: 0;
     padding: 20px;
-     background-image: url("/Camskart/resources/images/loginbackground.png");
-        background-size: cover;
-        background-position: center;
+    background-image: url("/Camskart/resources/images/loginbackground.png");
+    background-size: cover;
+    background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
