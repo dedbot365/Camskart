@@ -14,6 +14,8 @@ public class StringUtils {
 	public static final String GET_ALL_USER_INFO = "SELECT * FROM users";
 
 	public static final String GET_USERNAME = "SELECT COUNT(*) FROM users WHERE username = ?";
+	
+	public static final String GET_USER_TYPE = "SELECT user_type FROM users WHERE username = ?";
 
 	public static final String GET_PHONE = "SELECT COUNT(*) FROM users WHERE phone_no = ?";
 

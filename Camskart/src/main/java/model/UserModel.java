@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class UserModel {
+	//private String userid;
     private String username;
     private String firstName;
     private String lastName;
@@ -19,8 +20,11 @@ public class UserModel {
     private String postcode;
     private String country;
     
+    
+    
 
-    public UserModel(String username, String firstName, String lastName, LocalDate dob, String gender, String email,
+    //Constructor with all the attributes   
+	public UserModel(String username, String firstName, String lastName, LocalDate dob, String gender, String email,
                      String phoneNumber, String password, String usertype, String street, String city, String zone,
                      String postcode, String country) {
         this.username = username;
@@ -39,7 +43,32 @@ public class UserModel {
         this.country = country;
         
     }
+	//Constructor without any usertype
+	public UserModel(String username, String firstName, String lastName, LocalDate dob, String gender, String email,
+            String phoneNumber, String password, String street, String city, String zone,
+            String postcode, String country) {
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dob = dob;
+		this.gender = gender;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.password = password;
+		this.street = street;
+		this.city = city;
+		this.zone = zone;
+		this.postcode = postcode;
+		this.country = country;
+	}
+	
+	//Default Constructor created
+	public UserModel() {};
 
+	
+	
+	
+	//Getter and setter methods
     public String getUsername() {
         return username;
     }

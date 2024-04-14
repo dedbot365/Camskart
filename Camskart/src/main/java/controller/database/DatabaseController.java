@@ -74,6 +74,40 @@ public class DatabaseController {
 	        return -1;
 	    }
 	}
+//	public int getUserLoginInfo(String username, String password, String usertype) {
+//	    try (Connection con = getConnection()) {
+//	        PreparedStatement st = con.prepareStatement(StringUtils.GET_LOGIN_USER_INFO);
+//	        st.setString(1, username);
+//	        ResultSet rs = st.executeQuery();
+//
+//	        if(rs.next()) {
+//	            // Username exists in the database
+//	            String userDb = rs.getString("username");
+//	            String passwordDb = rs.getString("password");
+//	            String userTypeDb = rs.getString("user_type");
+//
+//	            // Decrypt the stored password
+//	            String decryptedPwd = PasswordEncryptionWithAes.decrypt(passwordDb, username);
+//
+//	            // Check if the username and password match
+//	            if (decryptedPwd != null && userDb.equals(username) && decryptedPwd.equals(password)) {
+//	                // Return 1 if login successful
+//	                return 1;
+//	            } else {
+//	                // Return 0 if password doesn't match
+//	                return 0;
+//	            }
+//	        } else {
+//	            // Username doesn't exist in the database
+//	            return 0;
+//	        }
+//
+//	    } catch (SQLException | ClassNotFoundException ex) {
+//	        ex.printStackTrace(); // Log exception for debugging
+//	        return -1;
+//	    }
+//	}
+	
 	public int getUserLoginInfo(String username, String password) {
 	    try (Connection con = getConnection()) {
 	        PreparedStatement st = con.prepareStatement(StringUtils.GET_LOGIN_USER_INFO);
@@ -84,7 +118,6 @@ public class DatabaseController {
 	            // Username exists in the database
 	            String userDb = rs.getString("username");
 	            String passwordDb = rs.getString("password");
-	            String userType = rs.getString("user_type");
 
 	            // Decrypt the stored password
 	            String decryptedPwd = PasswordEncryptionWithAes.decrypt(passwordDb, username);
@@ -107,5 +140,27 @@ public class DatabaseController {
 	        return -1;
 	    }
 	}
+
+	
+	public String getUserType(String username) {
+	    try (Connection con = getConnection()) {
+	        PreparedStatement st = con.prepareStatement(StringUtils.GET_USER_TYPE);
+	        st.setString(1, username);
+	        ResultSet rs = st.executeQuery();
+
+	        if(rs.next()) {
+	            // User type found
+	            return rs.getString("user_type");
+	        } else {
+	            // User not found
+	            return null;
+	        }
+
+	    } catch (SQLException | ClassNotFoundException ex) {
+	        ex.printStackTrace(); // Log exception for debugging
+	        return null;
+	    }
+	}
+
 
 }
