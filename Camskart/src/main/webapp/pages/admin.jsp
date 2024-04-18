@@ -1,13 +1,32 @@
 
 <%@page import="util.StringUtils"%>
 
+<%
+User user = (user)session.getAttribute("user")
+if user == null
+{
+	session.setAttribute("messagekey", "You are not logged in");
+	response.sendRedirect("login.jsp");
+	return
+}
+else 
+{
+	
+	if (!"admin".equals(userType)) {
+	print("You do not have access to this page.");
+	response.sendRedirect(login.jsp);
+	return
+
+}
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome</title>
+<title>Admin Panel</title>
 <link rel="stylesheet" type="text/css" href="/Camskart/stylesheet/style.css" />
 </head>
 <body>
