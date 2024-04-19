@@ -1,22 +1,25 @@
 
 <%@page import="util.StringUtils"%>
+<%@page import="controller.database.DatabaseController"%>
 
 <%
-User user = (user)session.getAttribute("user")
-if user == null
+HttpSession user = (HttpSession)session.getAttribute("username");
+DatabaseController dbController = new DatabaseController();
+String userName = request.getParameter("username");
+String userType = dbController.getUserType(userName);
+if (user == null)
 {
 	session.setAttribute("messagekey", "You are not logged in");
 	response.sendRedirect("login.jsp");
-	return
 }
 else 
 {
 	
-	if (!"admin".equals(userType)) {
-	print("You do not have access to this page.");
-	response.sendRedirect(login.jsp);
-	return
-
+	if (!"admin".equals(userType)) 
+	{
+	session.setAttribute("messagekey", "You are not logged in");
+	response.sendRedirect("login.jsp");
+	}
 }
 %>
 
@@ -29,8 +32,8 @@ else
 <title>Admin Panel</title>
 <link rel="stylesheet" type="text/css" href="/Camskart/stylesheet/style.css" />
 </head>
-<body>
-		<%
+	<body>
+	<%
     String userSession = (String) session.getAttribute("username");
     String cookieUsername = null;
     String cookieSessionID = null;
@@ -45,14 +48,7 @@ else
             }
         }
     }
-%>
-		<div class="welcome-container">
-			<h1>Hello <%=cookieUsername %>. Welcome to our Admin page!</h1>
-			<h3>Cookie session Id is <%=cookieSessionID %></h3>
-			<p>Session username: <%=userSession %></p>
-			<a href="${pageContext.request.contextPath}/pages/home2.jsp">
-				<button class="home-button">Continue to Home Page</button>
-			</a>
-		</div>
+%>  
+	<p>This is admin page</p>
 	</body>
 </html>

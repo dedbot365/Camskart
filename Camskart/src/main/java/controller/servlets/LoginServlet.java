@@ -79,11 +79,6 @@ public class LoginServlet extends HttpServlet {
             userSession.setAttribute("username", userName);
             userSession.setMaxInactiveInterval(30*30);
 
-            //idk
-	    User user = new User(userName); 
-            user.setUserType(dbController.getUserType(userName)); 
-            userSession.setAttribute("user", user)
-
             Cookie userCookie= new Cookie("user", userName);
             userCookie.setMaxAge(30*60);
             response.addCookie(userCookie);
