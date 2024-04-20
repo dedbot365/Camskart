@@ -53,5 +53,47 @@ else
 				<button class="home-button">Continue to Home Page</button>
 			</a>
 		</div>
+		
+		<div class = "row mt-3 mx-2">
+	
+			<%  productdao dao = new productdao(FactoryProvider.getFactory());
+				List<product> list = dao.getAllProducts();
+				CategoryDao cdao = 	new CategoryDao(FactoryProvider.getFactory());
+				List<Category> clist = cdao.getCategories();
+		
+		
+			%>
+			
+			<!-- to show products -->
+			<div class = "product">
+		
+				<h1>Number of products<%= list.size() %></h1>
+				<%
+					for(product product:list)
+					{
+						out.println(product.getName()+"<br>")
+					}
+		
+				%>
+	
+			</div>
+	
+			<!-- to show categories -->
+			<div class = "Category">
+			<h1> <%= clist.size() %></h1>
+			<% 
+			for (Category c:clist )
+			{
+				out.println(c.getCategoryTitle()+ "<br>");
+		
+			}	
+	
+			%>
+	
+			</div>
+	
+	
+	
+		</div>
 	</body>
 </html>
